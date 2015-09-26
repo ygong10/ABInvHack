@@ -8,13 +8,14 @@ def main_loop():
         url = "https://server.alcoholanalytics.com/api/hackathon/?m=579&d=c&f=&l=&s=&t=j"
         response = urllib2.urlopen(url)
         data = json.load(response)
+        print data
 
-        with open('mercuryj.json', 'w') as outfile:
-            print data
+        with open('mercuryj.txt', 'wb') as outfile:
             for row in data:
                 json.dump(row, outfile)
+                outfile.write('\n')
+                #print row
         outfile.close
-
         time.sleep(0.1)
 
 if __name__ == '__main__':
