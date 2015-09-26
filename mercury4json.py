@@ -5,16 +5,13 @@ import urllib2, json, sys, time, csv, re, requests
 def main_loop():
      while 1:
 
-        url = "https://server.alcoholanalytics.com/api/hackathon/?m=579&d=c&f=&l=&s=&t=c"
+        url = "https://server.alcoholanalytics.com/api/hackathon/?m=579&d=c&f=&l=&s=&t=j"
         response = urllib2.urlopen(url)
-        data = csv.reader(response)
+        data = json.load(response)
 
-        with open('mercuryc.csv', 'wb') as outfile:
-            wr = csv.writer(outfile, delimiter=',',quoting=csv.QUOTE_ALL)
-            for row in data:
-                wr.writerow(row)
-                print row
-
+        with open('mercuryj.json', 'wb') as outfile:
+            json.dump(data, outfile)
+        outfile.close
         time.sleep(0.1)
 
 if __name__ == '__main__':
