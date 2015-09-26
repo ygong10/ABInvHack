@@ -11,7 +11,8 @@ def main_loop():
 
         with open('mercuryj.json', 'w') as outfile:
             print data
-            json.dump(data, outfile)
+            for row in data:
+                json.dump(row, outfile)
         outfile.close
 
         time.sleep(0.1)
