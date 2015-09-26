@@ -1,3 +1,5 @@
+__author__ = 'ygong10'
+
 import urllib2, json, sys, time, re, requests
 
 def main_loop():
