@@ -9,9 +9,11 @@ def main_loop():
         response = urllib2.urlopen(url)
         data = json.load(response)
 
-        with open('mercuryj.json', 'wb') as outfile:
+        with open('mercuryj.json', 'w') as outfile:
+            print data
             json.dump(data, outfile)
         outfile.close
+
         time.sleep(0.1)
 
 if __name__ == '__main__':
