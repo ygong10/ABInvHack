@@ -1,19 +1,25 @@
 __author__ = 'ygong10'
 
-import urllib2, json, sys, time, re, requests
+import urllib2, json, sys, time, csv, re, requests
 
 def main_loop():
      while 1:
 #while True:
-        url = "https://server.alcoholanalytics.com/api/hackathon/?m=579&d=c&f=&l=&s=&t=j"
+        url = "https://server.alcoholanalytics.com/api/hackathon/?m=579&d=c&f=&l=&s=&t=c"
         response = urllib2.urlopen(url)
-        data = json.loads(response.read())
-                #above_ID =  data[0]['id']
-        print data
+        data = csv.reader(response)
+        # data = json.loads(response.read())
+        #         #above_ID =  data[0]['id']
+        # print data
+        #
 
-        with open('non_real_time_data.txt', 'w') as outfile:
-            json.dump(data, outfile)
-        outfile.close
+        with open('mercury.csv', 'wb') as outfile:
+            wr = csv.writer(outfile, delimiter=',',quoting=csv.QUOTE_ALL)
+            for row in data:
+                wr.writerow(row)
+                print row
+        # for row in data:
+        #     print row
         time.sleep(0.1)
 
 if __name__ == '__main__':
