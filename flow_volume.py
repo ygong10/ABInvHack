@@ -9,7 +9,7 @@ def main_loop():
         response = urllib2.urlopen(url)
         data = csv.reader(response)
 
-        with open('mercuryc.csv', 'wb') as outfile:
+        with open('volumec.csv', 'wb') as outfile:
             wr = csv.writer(outfile, delimiter=',',quoting=csv.QUOTE_ALL)
             for row in data:
                 wr.writerow(row)

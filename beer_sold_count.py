@@ -2,7 +2,7 @@ __author__ = 'ygong10'
 
 import csv, pandas as pd, array
 #with open('mercury.csv','rb') as csvfile:
-df = pd.read_csv('mercuryc.csv')
+df = pd.read_csv('volumec.csv')
 saved_volume = df.volume
 saved_time = df.time
 

@@ -21,7 +21,7 @@ def main_loop():
         #     jsonfile.write('\n')
         #     print row
 
-         with open("mercuryj.json", "wb") as outfile:
+         with open("volumej.json", "wb") as outfile:
              for row in data:
                 json.dump(row, outfile)
                 outfile.write("\n")
